@@ -1,5 +1,5 @@
 # 백준10026: 적록색약
-
+from collections import deque
 n = int(input())
 s = []
 for i in range(n):
@@ -11,16 +11,22 @@ cnt = 0
 cntt = 0
 
 def bfs(i, j, v, arr):
-    queue = [[i, j]]
-    arr[i][j] = 0
+    #queue = [[i, j]]
+    #arr[i][j] = 0
+    queue = deque()
+    queue.append((i,j))
     while queue:
-        a, b = queue[0][0], queue[0][1]
-        del queue[0]
+        #a, b = queue[0][0], queue[0][1]
+        #del queue[0]
+        now = queue.popleft()
         for k in range(4):
-            x = a + dx[k]
-            y = b + dy[k]
+            #x = a + dx[k]
+            #y = b + dy[k]
+            x = now[0] + dx[k]
+            y = now[1] + dy[k]
             if 0 <= x < n and 0 <= y < n and arr[x][y] == v:
-                queue.append([x, y])
+                #queue.append([x, y])
+                queue.append((x,y))
                 arr[x][y] = 0
 
 
