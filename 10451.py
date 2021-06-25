@@ -21,3 +21,4 @@ for _ in range(t):
             answer += 1
 
     print(answer)
+
